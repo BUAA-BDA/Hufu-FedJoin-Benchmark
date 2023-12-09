@@ -2,6 +2,10 @@
 
 The federated equi-join is commonly used in a data federation. It enables the combination of two or more relations held by distinct data owners, depending on the equality of attribute values specified in the join condition. Moreover, the query user remains unaware of any information beyond the query result itself or any details that can be directly inferred from it. Similarly, any data owner is limited to the knowledge of his own input and output, and has no clue about the others’ sensitive data.
 
+<p align="center">
+  <img src="https://github.com/BUAA-BDA/Hufu-FedJoin-Benchmark/blob/main/framework.png" />
+</p>
+
 However, previous methods lack a unified comparison within the same experimental benchmark. One reason is that their implementations are either unavailable or non-uniform. Moreover, their methods are evaluated on nearly completely different datasets.
 
 Thus, we have built an open-sourced Benchmark for Federated Equi-Joins, called FEJ-Bench. To foster future research studies. This benchmark is the first of its kind for federated equi-joins, to the best of our knowledge.
@@ -13,17 +17,20 @@ Thus, we have built an open-sourced Benchmark for Federated Equi-Joins, called F
 Many existing studies have designed novel solutions to answer a federated equi-join, and their proposed solutions can be classified into four categories. The first three are inspired by the seminal ideas of equi-joins over plaintext data: nested-loop based federated equi-joins, sort-merge based federated equi-joins, and hash based federated equijoins. The other line of research leverages the rich techniques of private set intersection (PSI) that securely computes the intersection of two attribute sets (e.g., primary keys) from different data owners.
 
 * Nested-Loop based Federated Binary Equi-Joins
-  * [VLDB'17] SMCQL[1]
-  * [VLDB'18] Shrinkwrap[2]
-  * [EuroSys'19] Conclave[3]
+  * [VLDB'17] SMCQL: paper[1], code[14]
+  * [VLDB'18] Shrinkwrap: paper[2]
+  * [EuroSys'19] Conclave: paper[3], code[15]
+
 * Sort-Merge based Federated Binary Equi-Joins
-  * [SIGMOD'22] SMJ[4]
-  * [VLDB'20] SFD20[5]
+  * [SIGMOD'22] SMJ: paper[4]
+  * [VLDB'20] SFD20: paper[5], code[16]
+
 * Hash based Federated Binary Equi-Joins
-  * [CCS'21] PPM20[6]
+  * [CCS'21] PPM20: paper[6]
+
 * PSI based Federated Binary Equi-Joins
-  * [SIGMOD'21] SecYan[7]
-  * [CCS'22] VOLE-PSI[8]
+  * [SIGMOD'21] SecYan: paper[7], code[17]
+  * [CCS'22] VOLE-PSI: paper[8], code[18]
 
 
 
@@ -31,11 +38,11 @@ Many existing studies have designed novel solutions to answer a federated equi-j
 
 Our experiment study consists of five datasets that have been widely used in existing research, as shown in Table II. Four of them, Slashdot, Jokes, Amazon, and IMDB datasets, are collected from real-world companies. The other one, TPC-H, is one of the most popular benchmark datasets.
 * Dataset
-  * Slashdot dataset [39]. This dataset is collected by Slashdot, a technology news website with friend/foe links between users.
-  * Jokes dataset [40]. The Jokes dataset contains anonymous ratings of jokes by different users of the recommender system Jester developed by UC Berkeley.
-  * Amazon dataset [22]. This dataset records the frequently co-purchased products on Amazon’s website.
-  * IMDB dataset [41]. Two tables from the original IMDB dataset are used: “title.basics” and “name.basics”. The first table contains information about movies, such as their titles. The second table contains information about actors, such as their representative movies’ names.
-  * TPC-H dataset [21]. The TPC-H dataset is a commonlyused benchmark dataset that simulates the real-world business data and queries.
+  * Slashdot dataset [9]. This dataset is collected by Slashdot, a technology news website with friend/foe links between users.
+  * Jokes dataset [10]. The Jokes dataset contains anonymous ratings of jokes by different users of the recommender system Jester developed by UC Berkeley.
+  * Amazon dataset [11]. This dataset records the frequently co-purchased products on Amazon’s website.
+  * IMDB dataset [12]. Two tables from the original IMDB dataset are used: “title.basics” and “name.basics”. The first table contains information about movies, such as their titles. The second table contains information about actors, such as their representative movies’ names.
+  * TPC-H dataset [13]. The TPC-H dataset is a commonlyused benchmark dataset that simulates the real-world business data and queries.
 * Data Partition. We consider two ways to determine the partitioned data of the above datasets in each owner.
     * Horizontal Partition. Since the Slashdot, Jokes, and Amazon datasets contain only one table, we randomly separate the tuples into two relations R and S that have the same schema but are held by different data owners.
     * Vertical Partition. By contrast, the IMDB and TPCH datasets have more than one table. Thus, following a vertical partition in existing work, each data owner holds a complete and different table, and these data owners consist a vertical data federation.  
