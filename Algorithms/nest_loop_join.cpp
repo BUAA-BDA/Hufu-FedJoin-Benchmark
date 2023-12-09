@@ -111,9 +111,7 @@ void NestLoopJoin::join_simd() {
         s_out_d1->get_clear_value_vec(&out_d1, &nvals, &bitlen);
         s_out_d2->get_clear_value_vec(&out_d2, &nvals, &bitlen);
         s_eq->get_clear_value_vec(&out_eq, &nvals, &bitlen);
-        // for (int i = 0; i < res_.size(); i++) {
-
-        // }
+        
         for (int i = 0; i < size_c_; i++) {
             res_val_.push_back({out_k[i], out_d1[i], out_d2[i], {(uint32_t)out_eq[i]}});
         }
@@ -125,7 +123,7 @@ void NestLoopJoin::join_simd() {
     delete[] zero_array;
 }
 
-void NestLoopJoin::theta_join_simd() {
+void NestLoopJoin::theta_join() {
     cout << "===== Nest Loop Join =====" << endl;
     party_->reset();
     res_.clear();

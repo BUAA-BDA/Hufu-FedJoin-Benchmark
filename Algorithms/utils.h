@@ -13,7 +13,6 @@
 #include <fstream>
 
 #define SHARED 0
-#define DEBUG 0
 
 using namespace std;
 

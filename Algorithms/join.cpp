@@ -53,57 +53,33 @@ int main(int argc, char* argv[]) {
 
 	double start = wallClock();
 
-	if (mode == "ALL") {
-		auto j1 = new NestLoopJoin(party, relation, size_s, size_c, other_para);
-		j1->join();
-		auto j2 = new OblivJoin(party, relation, size_s, size_c, other_para);
-		j2->join();
-		auto j3 = new FastJoin(party, relation, size_s, size_c);
-		j3->join();
-		auto j4 = new HashJoin(party, relation, size_s, size_c, other_para);
-		j4->join();
-		auto j5 = new SortMergeJoin(party, relation, size_s, size_c, other_para);
-		j5->join();
+	if (mode == "SMCQL") {
+		auto j = new NestLoopJoin(party, relation, size_s, size_c, other_para);
+		j->join_oram();
 	}
-	else if (mode == "NESTLOOP") {
-		auto j1 = new NestLoopJoin(party, relation, size_s, size_c, other_para);
-		j1->join_simd();
+	else if (mode == "Conclave") {
+		auto j = new NestLoopJoin(party, relation, size_s, size_c, other_para);
+		j->join();
 	}
-	else if (mode == "NESTLOOP_THETA") {
-		auto j1 = new NestLoopJoin(party, relation, size_s, size_c, other_para);
-		j1->theta_join_simd();
+	else if (mode == "SMJ") {
+		auto j = new SortMergeJoin(party, relation, size_s, size_c, other_para);
+		j->join();
 	}
-	else if (mode == "NESTLOOP_ORAM") {
-		auto j1 = new NestLoopJoin(party, relation, size_s, size_c, other_para);
-		j1->join_oram();
+	else if (mode == "SFD20") {
+		auto j = new OblivJoin(party, relation, size_s, size_c, other_para);
+		j->join();
 	}
-	else if (mode == "OBLIV") {
-		auto j2 = new OblivJoin(party, relation, size_s, size_c, other_para);
-		j2->join();
+	else if (mode == "PPM20") {
+		auto j = new FastJoin(party, relation, size_s, size_c);
+		j->join();
 	}
-	else if (mode == "OBLIV_PK") {
-		auto j2 = new OblivJoin(party, relation, size_s, size_c, other_para);
-		j2->join_PKFK();
+	else if (mode == "NLJ_THETA") {
+		auto j2 = new NestLoopJoin(party, relation, size_s, size_c, other_para);
+		j2->theta_join();
 	}
-	else if (mode == "FAST") {
-		auto j3 = new FastJoin(party, relation, size_s, size_c);
-		j3->join();
-	}
-	else if (mode == "HASH") {
-		auto j4 = new HashJoin(party, relation, size_s, size_c, other_para);
-		j4->join();
-	}
-	else if (mode == "SORTMERGE") {
-		auto j5 = new SortMergeJoin(party, relation, size_s, size_c, other_para);
-		j5->join();
-	}
-	else if (mode == "SORTMERGE_PK") {
-		auto j5 = new SortMergeJoin(party, relation, size_s, size_c, other_para);
-		j5->join_PKFK();
-	}
-	else if (mode == "SORTMERGE_THETA") {
-		auto j5 = new SortMergeJoin(party, relation, size_s, size_c, other_para);
-		j5->theta_join();
+	else if (mode == "SMJ_THETA") {
+		auto j2 = new SortMergeJoin(party, relation, size_s, size_c, other_para);
+		j2->theta_join();
 	}
 	else {
 		cout << "mode not support" << endl;

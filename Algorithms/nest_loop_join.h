@@ -17,7 +17,7 @@ public:
     }
     void join();
     void join_simd();
-    void theta_join_simd();
+    void theta_join();
     void join_oram();
 private:
     Party* party_;
