@@ -3,7 +3,7 @@
 The federated equi-join is commonly used in a data federation. It enables the combination of two or more relations held by distinct data owners, depending on the equality of attribute values specified in the join condition. Moreover, the query user remains unaware of any information beyond the query result itself or any details that can be directly inferred from it. Similarly, any data owner is limited to the knowledge of his own input and output, and has no clue about the others’ sensitive data.
 
 <p align="center">
-  <img src="https://github.com/BUAA-BDA/Hufu-FedJoin-Benchmark/blob/main/framework.png" />
+  <img src="https://github.com/BUAA-BDA/Hufu-FedJoin-Benchmark/blob/main/Resources/framework.png" />
 </p>
 
 However, previous methods lack a unified comparison within the same experimental benchmark. One reason is that their implementations are either unavailable or non-uniform. Moreover, their methods are evaluated on nearly completely different datasets.
@@ -15,6 +15,10 @@ Thus, we have built an open-sourced Benchmark for Federated Equi-Joins, called F
 ## Algorithms Evaluated
 
 Many existing studies have designed novel solutions to answer a federated equi-join, and their proposed solutions can be classified into four categories. The first three are inspired by the seminal ideas of equi-joins over plaintext data: nested-loop based federated equi-joins, sort-merge based federated equi-joins, and hash based federated equijoins. The other line of research leverages the rich techniques of private set intersection (PSI) that securely computes the intersection of two attribute sets (e.g., primary keys) from different data owners.
+
+<p align="center">
+  <img src="https://github.com/BUAA-BDA/Hufu-FedJoin-Benchmark/blob/main/Resources/taxonomy2.png" />
+</p>
 
 * Nested-Loop based Federated Binary Equi-Joins
   * [VLDB'17] SMCQL: paper[1], code[14]
@@ -32,6 +36,9 @@ Many existing studies have designed novel solutions to answer a federated equi-j
   * [SIGMOD'21] SecYan: paper[7], code[17]
   * [CCS'22] VOLE-PSI: paper[8], code[18]
 
+<p align="center">
+  <img src="https://github.com/BUAA-BDA/Hufu-FedJoin-Benchmark/blob/main/Resources/alg-cmp.png" />
+</p>
 
 
 ## Dataset Used
