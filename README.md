@@ -54,6 +54,18 @@ Our experiment study consists of five datasets that have been widely used in exi
     * Horizontal Partition. Since the Slashdot, Jokes, and Amazon datasets contain only one table, we randomly separate the tuples into two relations R and S that have the same schema but are held by different data owners.
     * Vertical Partition. By contrast, the IMDB and TPCH datasets have more than one table. Thus, following a vertical partition in existing work, each data owner holds a complete and different table, and these data owners consist a vertical data federation.  
 
+
+## Performance Evaluation
+
+Based on the pros/cons of these evaluated algorithms, we provide our recommendations for the best solution to federated equi-joins under different scenarios:
+
+<p align="center">
+  <img src="https://github.com/BUAA-BDA/Hufu-FedJoin-Benchmark/blob/main/Resources/recommendation.png" />
+</p>
+
+For detailed performance evaluation, please refer to our paper *FEJ-Bench: A Benchmark for Federated Equi-Joins*.
+
+
 ## References
 
 [1] J. Bater, G. Elliott, C. Eggen, S. Goel, A. N. Kho, and J. Rogers, “SMCQL: secure query processing for private data networks,” PVLDB, vol. 10, no. 6, pp. 673–684, 2017.
