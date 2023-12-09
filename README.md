@@ -1,4 +1,4 @@
-# FEJ-Bench: A Benchmark for Federated Equi-Joins
+![image](https://github.com/BUAA-BDA/Hufu-FedJoin-Benchmark/assets/60478900/ecd62e56-7938-42e0-8843-a1146a2546e3)# FEJ-Bench: A Benchmark for Federated Equi-Joins
 
 The federated equi-join is commonly used in a data federation. It enables the combination of two or more relations held by distinct data owners, depending on the equality of attribute values specified in the join condition. Moreover, the query user remains unaware of any information beyond the query result itself or any details that can be directly inferred from it. Similarly, any data owner is limited to the knowledge of his own input and output, and has no clue about the others’ sensitive data.
 
@@ -63,7 +63,40 @@ Based on the pros/cons of these evaluated algorithms, we provide our recommendat
   <img src="https://github.com/BUAA-BDA/Hufu-FedJoin-Benchmark/blob/main/Resources/recommendation.png" />
 </p>
 
-For detailed performance evaluation, please refer to our paper *FEJ-Bench: A Benchmark for Federated Equi-Joins*.
+For detailed performance evaluation, please refer to our paper *An Experimental Study on Federated Equi-Joins*.
+
+
+## Uasge
+### Requirements
+
+* gcc/g++ >= 8
+* cmake >= 3.16
+* Boost >= 1.75
+
+### Compile
+
+```shell
+git clone --recurse-submodules git@github.com:BUAA-BDA/Hufu-FedJoin-Benchmark.git
+cd Hufu-FedJoin-Benchmark
+make build
+cd build
+cmake ..
+make -j 8
+```
+
+### Run
+
+```shell
+# build directory
+# parameters role(S/C) + input_file + data_size + algorithm_name
+
+# Server:
+./join SERVER ../../Data/TPCH/part.txt 20 80 Conclave
+
+# Client:
+./join CLIENT ../../Data/TPCH/partsupp.txt 20 80 Conclave
+```
+
 
 
 ## References
