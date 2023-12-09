@@ -219,8 +219,9 @@ void NestLoopJoin::write(share* loc, share* k, share* d1, share* d2) {
 
 void NestLoopJoin::join_oram() {
     if (size_res_ == 0) {
-        cout << "please set res_size!" << endl;
-        exit(0);
+        size_res_ = size_s_ * size_c_;
+        // cout << "please set res_size!" << endl;
+        // exit(0);
     }
     cout << "===== Nest Loop Join =====" << endl;
     party_->reset();
