@@ -99,7 +99,11 @@ make -j 8
 ./join CLIENT ../../Data/TPCH/partsupp.txt 20 80 Conclave
 ```
 
+The figure presented below shows a segment of our experimental results:
 
+<p align="center">
+  <img src="https://github.com/BUAA-BDA/Hufu-FedJoin-Benchmark/blob/main/Resources/exp-result.png" />
+</p>
 
 ## References
 
