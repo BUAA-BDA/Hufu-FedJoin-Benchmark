@@ -1,4 +1,4 @@
-![image](https://github.com/BUAA-BDA/Hufu-FedJoin-Benchmark/assets/60478900/ecd62e56-7938-42e0-8843-a1146a2546e3)# FEJ-Bench: A Benchmark for Federated Equi-Joins
+# FEJ-Bench: An Experimental Study on Federated Equi-Joins
 
 The federated equi-join is commonly used in a data federation. It enables the combination of two or more relations held by distinct data owners, depending on the equality of attribute values specified in the join condition. Moreover, the query user remains unaware of any information beyond the query result itself or any details that can be directly inferred from it. Similarly, any data owner is limited to the knowledge of his own input and output, and has no clue about the others’ sensitive data.
 
