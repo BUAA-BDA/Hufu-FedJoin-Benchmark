@@ -82,7 +82,7 @@ git clone --recurse-submodules git@github.com:BUAA-BDA/Hufu-FedJoin-Benchmark.gi
 cd Hufu-FedJoin-Benchmark
 mkdir build
 cd build
-cmake ..
+cmake ../Algorithms
 make -j 8
 ```
 
