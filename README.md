@@ -80,7 +80,7 @@ For detailed performance evaluation, please refer to our paper *An Experimental 
 ```shell
 git clone --recurse-submodules git@github.com:BUAA-BDA/Hufu-FedJoin-Benchmark.git
 cd Hufu-FedJoin-Benchmark
-make build
+mkdir build
 cd build
 cmake ..
 make -j 8
